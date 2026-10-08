@@ -1,0 +1,201 @@
+:root {
+  /* =========================================
+     1. FUENTES Y TIPOGRAFÍA
+     ========================================= */
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-roboto: 'Roboto', system-ui, -apple-system, sans-serif;
+
+  /* Escalado tipográfico fluido / consistente */
+  --font-12: 0.75rem;   /* 12px */
+  --font-14: 0.875rem;  /* 14px */
+  --font-16: 1rem;      /* 16px */
+  --font-18: 1.125rem;  /* 18px */
+  --font-20: 1.25rem;   /* 20px */
+  --font-24: 1.5rem;    /* 24px */
+  --font-32: 2rem;      /* 32px */
+  --font-40: 2.5rem;    /* 40px */
+
+  --font-400: 400;
+  --font-500: 500;
+  --font-700: 700;
+
+  --line-1h2: 1.2;
+  --line-1h5: 1.5;
+  --line-1h7: 1.75;
+
+  /* =========================================
+     2. PALETA DE COLORES (Semántica)
+     ========================================= */
+  /* Colores de marca */
+  --color-primary: #0066cc;
+  --color-primary-hover: #0052a3;
+  --color-secondary: #4a5568;
+
+  /* Colores de estado */
+  --color-success: #2e7d32;
+  --color-warning: #ed6c02;
+  --color-danger: #d32f2f;
+
+  /* Neutros (Modo claro por defecto) */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --border-color: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* =========================================
+     3. ESPACIADO (Escala modular de 4px / 8px)
+     ========================================= */
+  --space-4: 0.25rem;  /* 4px */
+  --space-8: 0.5rem;   /* 8px */
+  --space-12: 0.75rem;  /* 12px */
+  --space-16: 1rem;     /* 16px */
+  --space-20: 1.25rem;  /* 20px */
+  --space-24: 1.5rem;   /* 24px */
+  --space-32: 2rem;     /* 32px */
+  --space-40: 2.5rem;   /* 40px */
+  --space-48: 3rem;     /* 48px */
+
+  /* =========================================
+     4. CONTENEDORES Y BORDES
+     ========================================= */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-4);
+
+  --radius-4: 0.25rem; /* 4px */
+  --radius-8: 0.5rem;  /* 8px */
+  --radius-16: 1rem;    /* 16px */
+  --radius-99: 9999px;
+
+  /* Sombras */
+  --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-10: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Transiciones */
+  --transition-alta: 0.15s ease-in-out;
+  --transition-base: 0.25s ease-in-out;
+}
+
+/* =========================================
+   SOPORTE DE MODO OSCURO AUTOMÁTICO Y MANUAL
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-app: #0f172a;
+    --bg-surface: #1e293b;
+    --border-color: #334155;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+  }
+}
+
+/* Para permitir cambio manual mediante JS con document.documentElement.setAttribute('data-theme', 'dark') */
+[data-theme="dark"] {
+  --bg-app: #0f172a;
+  --bg-surface: #1e293b;
+  --border-color: #334155;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+}
+
+/* Box sizing universal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajustes de renderizado de texto y altura total */
+html {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--bg-app);
+  
+  /* Suavizado tipográfico */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Formato para evitar saltos de palabra extraños */
+  text-wrap: pretty;
+}
+
+body {
+  min-height: 100vh;
+  /* Flexbox para garantizar el sticky footer si la app es corta */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Evita desbordamiento de títulos en contenedores estrechos */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+}
+
+/* Imágenes y elementos multimedia responsivos */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Heredar fuentes en elementos de formulario */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Accesibilidad al enfocar con teclado */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Contenedor principal centrado */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Abstracciones Flexbox habituales */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Espaciado interno mediante 'gap' para evitar colapsos de márgenes */
+.gap-sm { gap: var(--space-2); }
+.gap-md { gap: var(--space-4); }
+.gap-lg { gap: var(--space-6); }
