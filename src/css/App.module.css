@@ -1,4 +1,31 @@
 .App {
-    width: 100%;
-    
+
+  
+  
 }
+
+.item {
+  display: flex;
+  gap: 0.5rem;
+  
+  &>:nth-child(1) {
+    width: 5rem;
+    text-align: right;
+  }
+  &>:nth-child(2) {
+    width: 1rem;
+    /* border: 1px dashed red; */
+    text-align: center;
+  }
+  &>:nth-child(5) {
+    border: 1px dashed darkorange;
+    width: 2rem;
+    text-align: center;
+    text-align: right;
+    gap: 0.1rem;
+  }
+  &>:nth-child(6) {
+    
+  }
+}
+

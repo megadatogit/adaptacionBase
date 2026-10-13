@@ -1,11 +1,11 @@
 :root {
-  /* =========================================
-     1. FUENTES Y TIPOGRAFÍA
-     ========================================= */
+  /* 1. FUENTES Y TIPOGRAFÍA */
+
   --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
   --font-roboto: 'Roboto', system-ui, -apple-system, sans-serif;
 
   /* Escalado tipográfico fluido / consistente */
+  
   --font-12: 0.75rem;   /* 12px */
   --font-14: 0.875rem;  /* 14px */
   --font-16: 1rem;      /* 16px */
@@ -19,13 +19,12 @@
   --font-500: 500;
   --font-700: 700;
 
-  --line-1h2: 1.2;
-  --line-1h5: 1.5;
-  --line-1h7: 1.75;
+  --line-1base: 1.2;
+  --line-1intermedio: 1.5;
+  --line-1alto: 1.75;
 
-  /* =========================================
-     2. PALETA DE COLORES (Semántica)
-     ========================================= */
+  /*2. PALETA DE COLORES (Semántica) */
+  
   /* Colores de marca */
   --color-primary: #0066cc;
   --color-primary-hover: #0052a3;
@@ -45,11 +44,9 @@
   --text-secondary: #475569;
   --text-muted: #94a3b8;
 
-  /* =========================================
-     3. ESPACIADO (Escala modular de 4px / 8px)
-     ========================================= */
-  --space-4: 0.25rem;  /* 4px */
-  --space-8: 0.5rem;   /* 8px */
+  /* 3. ESPACIADO (Escala modular de 4px / 8px) */
+  --space-4: 0.25rem;   /* 4px */
+  --space-8: 0.5rem;    /* 8px */
   --space-12: 0.75rem;  /* 12px */
   --space-16: 1rem;     /* 16px */
   --space-20: 1.25rem;  /* 20px */
@@ -58,16 +55,14 @@
   --space-40: 2.5rem;   /* 40px */
   --space-48: 3rem;     /* 48px */
 
-  /* =========================================
-     4. CONTENEDORES Y BORDES
-     ========================================= */
-  --container-max-width: 1200px;
-  --container-padding: var(--space-4);
+  /* 4. CONTENEDORES Y BORDES */
+  --container-max-width: 1000px;
+  --container-padding: var(--space-32);
 
   --radius-4: 0.25rem; /* 4px */
   --radius-8: 0.5rem;  /* 8px */
-  --radius-16: 1rem;    /* 16px */
-  --radius-99: 9999px;
+  --radius-16: 1rem;   /* 16px */
+  --radius-99: 9999px; /* total */
 
   /* Sombras */
   --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -79,9 +74,7 @@
   --transition-base: 0.25s ease-in-out;
 }
 
-/* =========================================
-   SOPORTE DE MODO OSCURO AUTOMÁTICO Y MANUAL
-   ========================================= */
+/* SOPORTE DE MODO OSCURO AUTOMÁTICO Y MANUAL */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg-app: #0f172a;
@@ -118,7 +111,7 @@
 html {
   font-family: var(--font-inter);
   font-size: 16px;
-  line-height: var(--line-height-base);
+  line-height: var(--line-1base);
   color: var(--text-primary);
   background-color: var(--bg-app);
   
@@ -131,7 +124,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   /* Flexbox para garantizar el sticky footer si la app es corta */
   display: flex;
   flex-direction: column;
@@ -164,6 +157,9 @@ input, button, textarea, select {
 }
 
 /* Contenedor principal centrado */
+
+
+
 .container {
   width: 100%;
   max-width: var(--container-max-width);
