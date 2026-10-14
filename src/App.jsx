@@ -1,5 +1,5 @@
 import styles from "./css/App.module.css"
-import Fecha from "./components/Fecha"
+import Fecha from "./components/Bitacora/VistaPresion"
 
 function App() {
   
