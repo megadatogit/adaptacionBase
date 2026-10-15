@@ -1,13 +1,13 @@
 import styles from "./css/App.module.css"
-import Fecha from "./components/Bitacora/VistaPresion"
+import LayBitacora from "./components/Bitacora/LayBitacora"
 
 function App() {
   
 
   return (
     <>
-      <div className={`${styles.App} flex-center container `}>
-        <Fecha />
+      <div className={`${styles.App} flex-center `}>
+        <LayBitacora />
       </div>
     </>
   )

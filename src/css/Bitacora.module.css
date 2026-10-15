@@ -1,0 +1,500 @@
+/* Contenedor Principal del Dashboard */
+.LayBitacora {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Estilos para el Header del Paciente (Integrados) */
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  gap: 2rem;
+}
+
+.tituloBitacora {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin: 0 0 0.25rem 0;
+}
+
+.nombrePaciente {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.detallesAdmin {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.seccionClinica {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cardDato {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.valor {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.valorDestacado {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #e63946;
+}
+
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  gap: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.tituloBitacora {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin: 0 0 0.25rem 0;
+}
+
+.nombrePaciente {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.detallesAdmin {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.seccionClinica {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cardDato {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.valor {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.valorDestacado {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #e63946;
+}
+
+/* Estilos para el Panel de Entrada de Datos */
+.contenedorEntrada {
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 1.25rem 2rem;
+}
+
+.tabsEntrada {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.tabActivo {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.cuerpoEntrada {
+  display: flex;
+  flex-direction: column;
+}
+
+.formManual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.bloqueInputsScroll {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.controlGrupo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.controlGrupo label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.controlGrupo input {
+  width: 100px;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.unidadMedida {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.btnGuardarLectura {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnGuardarLectura:hover {
+  background-color: #0369a1;
+}
+
+.panelDispositivo {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.infoConexion p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 0.75rem 0;
+}
+
+.selectorPuerto {
+  display: flex;
+  gap: 1rem;
+}
+
+.selectDevice {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.btnSincronizar {
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btnSincronizar:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+/* Estilos para la Tabla de Registros */
+.contenedorTablaRegistros {
+  background-color: #ffffff;
+  border-right: 2px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.headerTablaTitulo h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.tablaHeaderGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr 1fr;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.cuerpoTablaScroll {
+  display: flex;
+  flex-direction: column;
+  max-height: 450px;
+  overflow-y: auto;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.filaRegistro {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr 1fr;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.filaRegistro:hover,
+.filaHovered {
+  background-color: #e0f2fe !important;
+}
+
+.celdaFecha {
+  display: flex;
+  flex-direction: column;
+}
+
+.diaTexto {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.horaTexto {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.celdaValor {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.celdaAlerta {
+  display: flex;
+  align-items: center;
+}
+
+.badgeAlerta {
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.alertaSubio {
+  color: #16a34a; /* Verde favorable o alerta según contexto */
+}
+
+.alertaBajo {
+  color: #ca8a04; /* Amarillo / precaución */
+}
+
+.alertaNeutro {
+  color: #94a3b8;
+}
+
+
+/* Estilos para el Panel de Gráficas en Paralelo */
+.contenedorPanelGraficas {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex: 1.2;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.headerGraficas {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.colGraficaHeader {
+  flex: 1;
+}
+
+.colGraficaHeader h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.cuerpoGraficasFlex {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.graficaIndividual {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Estilos para el Footer / Resumen Clínico Analítico */
+.contenedorFooterClinico {
+  background-color: #ffffff;
+  border-top: 2px solid #e2e8f0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.cardResumenItem,
+.cardResumenItemTratamiento {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.cardResumenItemTratamiento {
+  flex: 1.5;
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.footerLabel {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.footerValor {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.footerValorDestacado {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.footerValorTratamiento {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #166534;
+}
+
+.cuerpoPrincipalDashboard {
+  display: flex;
+}
