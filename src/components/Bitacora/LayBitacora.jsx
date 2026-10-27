@@ -10,7 +10,7 @@ const LayBitacora = () => {
   const [paciente] = useState({
     nombre: "Milton Herrera",
     ufm: "UFM ´14",
-    nss: "****265",
+    nss: "45998231265",
     consultorio: "1",
     turno: "TM",
     edad: 44,

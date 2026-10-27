@@ -48,7 +48,7 @@ const GraficaPresion = ({ datos = [], titulo = "Registros de Presión" }) => {
             <Line
               dataKey="diastolica"
               name="Diastólica"
-              stroke="#1d3557"
+              stroke="#1d35571c"
               strokeWidth={2}
               dot={{ r: 4 }}
             />
