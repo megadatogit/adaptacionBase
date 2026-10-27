@@ -8,9 +8,9 @@ import styles from "../../css/Bitacora.module.css"
 
 const LayBitacora = () => {
   const [paciente] = useState({
-    nombre: "Nombre del Paciente",
+    nombre: "Milton Herrera",
     ufm: "UFM ´14",
-    nss: "12345678901",
+    nss: "****265",
     consultorio: "1",
     turno: "TM",
     edad: 44,
