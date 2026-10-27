@@ -78,6 +78,32 @@ const EjeFijo = ({ configuracion }) => {
   )
 }
 
+const TooltipGrafica = ({ active, payload, tipo }) => {
+  if (!active || !payload?.length) return null
+
+  const elementos = payload.filter(({ value }) => (
+    tipo === "presion" ? Array.isArray(value) : Number.isFinite(value)
+  ))
+  if (!elementos.length) return null
+
+  const etiqueta = elementos[0]?.payload?.etiquetaCorta
+
+  return (
+    <div className={styles.tooltipGrafica} role="status">
+      {etiqueta && <div className={styles.tooltipEtiqueta}>{etiqueta}</div>}
+      {elementos.map(({ dataKey, name, value, color }) => (
+        <div className={styles.tooltipDato} key={dataKey || name}>
+          <i style={{ backgroundColor: color }} aria-hidden="true" />
+          <span>{tipo === "presion" ? name : "Frecuencia"}</span>
+          <strong>
+            {tipo === "presion" ? `${value[1]}/${value[0]} mmHg` : `${value} bpm`}
+          </strong>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 const PanelGraficas = ({ registros = [], hoveredId, selectedId, scrollToSelected, onHoverPoint, onSelectPoint }) => {
   const scrollRef = useRef(null)
   const altoFila = 44
@@ -173,10 +199,7 @@ const PanelGraficas = ({ registros = [], hoveredId, selectedId, scrollToSelected
                 axisLine={false}
               />
               
-              <Tooltip
-                formatter={(value) => Array.isArray(value) ? `${value[1]}/${value[0]} mmHg` : value}
-                labelFormatter={(label, items) => items[0]?.payload?.etiquetaCorta || label}
-              />
+              <Tooltip content={<TooltipGrafica tipo="presion" />} />
               
               <ReferenceLine x={60} stroke="#22c55e" strokeWidth={2} strokeDasharray="4 5" />
               <ReferenceLine x={120} stroke="#eab308" strokeWidth={2} strokeDasharray="4 5" />
@@ -239,10 +262,7 @@ const PanelGraficas = ({ registros = [], hoveredId, selectedId, scrollToSelected
 
               <ReferenceLine x={80} stroke="#eab308" strokeWidth={2} strokeDasharray="4 5" />
               
-              <Tooltip
-                formatter={(value) => [`${value} bpm`, 'Frecuencia']}
-                labelFormatter={(label, items) => items[0]?.payload?.etiquetaCorta || label}
-              />
+              <Tooltip content={<TooltipGrafica tipo="frecuencia" />} />
 
               <Line
                 type="monotone"
