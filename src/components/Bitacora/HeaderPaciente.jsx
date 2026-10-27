@@ -1,4 +1,3 @@
-import React from "react"
 import styles from "../../css/Bitacora.module.css"
 
 const HeaderPaciente = ({ paciente }) => {
@@ -44,6 +43,14 @@ const HeaderPaciente = ({ paciente }) => {
         <div className={styles.cardDato}>
           <span className={styles.label}>Tipo Sangre</span>
           <span className={styles.valorDestacado}>{tipoSangre}</span>
+        </div>
+        <div
+          className={`${styles.cardDato} ${styles.cardDatoInformativo}`}
+          role="note"
+          aria-label="Alergias: Ninguna"
+        >
+          <span className={styles.label}>Alergias</span>
+          <span className={styles.valor}>Ninguna</span>
         </div>
       </div>
     </header>

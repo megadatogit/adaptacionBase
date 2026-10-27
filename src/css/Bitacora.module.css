@@ -150,6 +150,16 @@
   color: #e63946;
 }
 
+.seccionClinica {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.cardDatoInformativo {
+  justify-content: center;
+  white-space: nowrap;
+}
+
 /* Estilos para el Panel de Entrada de Datos */
 .contenedorEntrada {
   background-color: #ffffff;
@@ -318,12 +328,26 @@
 .tablaHeaderGrid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.2fr 1fr;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border-bottom: 2px solid #e2e8f0;
   font-size: 0.75rem;
   font-weight: 700;
   color: #64748b;
   text-transform: uppercase;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  scrollbar-color: transparent transparent;
+  box-sizing: border-box;
+}
+
+.tablaHeaderGrid::-webkit-scrollbar-thumb,
+.tablaHeaderGrid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tablaHeaderGrid span:not(:first-child) {
+  text-align: center;
+  align-self: center;
 }
 
 .cuerpoTablaScroll {
@@ -331,6 +355,7 @@
   flex-direction: column;
   max-height: 450px;
   overflow-y: auto;
+  scrollbar-gutter: stable;
   gap: 0.25rem;
   margin-top: 0.5rem;
 }
@@ -346,9 +371,39 @@
   border-bottom: 1px solid #f1f5f9;
 }
 
+.filaCambioMes {
+  position: relative;
+  margin-top: 0.9rem;
+  border-top: 1px solid #94a3b8;
+}
+
+.filaCambioMes::before {
+  content: attr(data-mes);
+  position: absolute;
+  top: -0.72rem;
+  left: 0.5rem;
+  padding: 0 0.3rem;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .filaRegistro:hover,
 .filaHovered {
-  background-color: #e0f2fe !important;
+  background-color: #e0f2fe;
+}
+
+.filaRegistro:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: -2px;
+}
+
+.filaSeleccionada {
+  background-color: #bae6fd !important;
+  box-shadow: inset 3px 0 0 #0284c7, 0 0 0 1px rgba(2, 132, 199, 0.2);
 }
 
 .celdaFecha {
@@ -371,11 +426,13 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: #334155;
+  text-align: center;
 }
 
 .celdaAlerta {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .badgeAlerta {
@@ -385,12 +442,12 @@
   border-radius: 4px;
 }
 
-.alertaSubio {
-  color: #16a34a; /* Verde favorable o alerta según contexto */
+.alertaEnRango {
+  color: #16a34a;
 }
 
-.alertaBajo {
-  color: #ca8a04; /* Amarillo / precaución */
+.alertaFueraRango {
+  color: #ca8a04;
 }
 
 .alertaNeutro {
@@ -428,15 +485,157 @@
   letter-spacing: 0.05em;
 }
 
+.leyendaBrazos {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 0.35rem;
+  color: #64748b;
+  font-size: 0.7rem;
+}
+
+.leyendaBrazos span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.leyendaBrazos i {
+  display: inline-block;
+  width: 1rem;
+  height: 0.3rem;
+  border-radius: 999px;
+}
+
+.muestraIzquierda {
+  background: #38bdf8;
+}
+
+.muestraDerecha {
+  background: #a855f7;
+}
+
+.graficasScroll {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  border-bottom: 1px solid #e2e8f0;
+}
+
 .cuerpoGraficasFlex {
   display: flex;
   gap: 0.5rem;
   width: 100%;
+  position: relative;
+}
+
+.bandasInteraccionGraficas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bandasInteraccionGraficas i {
+  position: absolute;
+  right: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.bandaHover {
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+}
+
+.bandaSeleccionada {
+  background: rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(2, 132, 199, 0.55);
+  box-shadow: inset 0 0 10px rgba(2, 132, 199, 0.16);
+}
+
+.separadoresMesGraficas {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.separadoresMesGraficas i {
+  position: absolute;
+  right: 0;
+  left: 0;
+  border-top: 1px solid rgba(100, 116, 139, 0.65);
+}
+
+.ejesScrollCompensacion {
+  flex: 0 0 32px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-color: transparent transparent;
+  background: #ffffff;
+}
+
+.ejesScrollCompensacion::-webkit-scrollbar-thumb,
+.ejesScrollCompensacion::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ejesGraficasFlex {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 32px;
+}
+
+.ejeFijo {
+  position: relative;
+  height: 31px;
+  box-sizing: border-box;
+  color: #64748b;
+  font-size: 0.65rem;
+}
+
+.ejeFijo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-top: 1px solid #94a3b8;
+}
+
+.ejeFijo span {
+  position: absolute;
+  top: 6px;
+  transform: translateX(-50%);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ejeFijo span::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  height: 4px;
+  border-left: 1px solid #94a3b8;
+}
+
+.ejeFijo small {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #94a3b8;
+  font-size: 0.58rem;
 }
 
 .graficaIndividual {
   flex: 1;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Estilos para el Footer / Resumen Clínico Analítico */
@@ -460,6 +659,9 @@
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   flex: 1;
+  min-height: 76px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .cardResumenItemTratamiento {
